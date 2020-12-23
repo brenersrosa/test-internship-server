@@ -5,7 +5,7 @@ import db from '../database/connection';
 export default class ClassesController {
   async index(request: Request, response: Response) {
     const users = await db('users')
-      .select(['users.*']);
+      .select(['users.*']).orderBy('name');
 
     return response.json(users);
   }
